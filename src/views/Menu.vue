@@ -6,11 +6,13 @@
         <div v-for="(item, key) in tasks" :key="key" class="container d-flex flex-row align-items-center justify-content-start">
             <h5 class="text-muted">{{key}}:</h5>
             <div class="container d-flex flex-row justify-centent-between align-items-center">
-                <h2>{{item.name}}</h2>
+                <h2 class="container">{{item.name}}</h2>
                 <p class="container d-flex align-items-center justify-content-start m-0">{{item.description}}</p>
             </div>
-            <div class="container text-end">
-                <div id="id" @click="del(key)">x</div>
+            <div>
+                <div id="closeBtn" @click="del(key)">
+                    <img src="@/assets/times-solid.svg" id="close" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -48,3 +50,14 @@
         emits: ['delItem']
     }
 </script>
+
+<style scoped>
+    #close{
+        width: 20px;
+        cursor: pointer;
+    }
+    h2.container{
+        min-width:min-content;
+        max-width: max-content;
+    }
+</style>
